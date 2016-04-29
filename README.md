@@ -8,7 +8,7 @@ Declarative renderer provides an ability to describe markup as a serializable co
 import {registerRenderer, NestingRenderer} from 'react-declarative-renderer';
 
 registerRenderer('link', props => <a {...props}>{props.children}</a>);
-registerRenderer('braces', props => <span>&lt;{props.children}&gt;</span>);
+registerRenderer('underscores', props => <span>__{props.children}__</span>);
 
 <NestingRenderer renderers={[
   {
@@ -17,9 +17,7 @@ registerRenderer('braces', props => <span>&lt;{props.children}&gt;</span>);
       href: 'http://google.com'
     }
   },
-  {
-    id: 'braces'
-  }
+  {id: 'underscores'}
 ]}>
   Google.com
 </NestingRenderer>
@@ -28,5 +26,5 @@ registerRenderer('braces', props => <span>&lt;{props.children}&gt;</span>);
 Snippet above produces following markup:
 
 ```html
-<span>&lt;<a href="http://google.com">Google.com</a>&gt;</span>
+<span>__<a href="http://google.com">Google.com</a>__</span>
 ```
