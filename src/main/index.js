@@ -1,2 +1,2 @@
-export * from './RendererRepo';
-export {DeclarativeRenderer} from './DeclarativeRenderer';
+export * from './RendererShape';
+export {NestingRenderer} from './NestingRenderer';
