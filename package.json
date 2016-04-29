@@ -9,9 +9,10 @@
     "url": "https://github.com/smikhalevski/react-declarative-renderer.git"
   },
   "homepage": "https://github.com/smikhalevski/react-declarative-renderer",
+  "main": "target/out/index.js",
   "files": [
-    "src/",
-    "target/",
+    "src/main/",
+    "target/out/",
     ".babelrc"
   ],
   "scripts": {
