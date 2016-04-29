@@ -4,8 +4,14 @@ module.exports = {
   },
   output: {
     path: './target/out',
-    filename: '[name].js'
+    filename: '[name].js',
+    libraryTarget: 'commonjs'
   },
+  externals: [
+    {
+      'react': true
+    }
+  ],
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel'}
