@@ -1,6 +1,6 @@
 {
   "name": "react-declarative-renderer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Savva Mikhalevski",
   "description": "Describe React markup with JSON",
   "license": "MIT",
