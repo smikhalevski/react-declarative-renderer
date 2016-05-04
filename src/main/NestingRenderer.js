@@ -6,18 +6,20 @@ const {arrayOf, object} = React.PropTypes;
 export class NestingRenderer extends React.Component {
 
   static propTypes = {
-    renderers: arrayOf(RendererShape).isRequired,
+    renderers: arrayOf(RendererShape),
     defaultProps: object
   };
 
   render() {
     let {renderers, defaultProps, children} = this.props;
-    for (let {id, props} of renderers) {
-      let renderer = getRenderer(id);
-      if (!renderer) {
-        throw new Error(`Expected renderer ${id} to be registered before being used`);
+    if (Array.isArray(renderers)) {
+      for (let {id, props} of renderers) {
+        let renderer = getRenderer(id);
+        if (!renderer) {
+          throw new Error(`Expected renderer ${id} to be registered before being used`);
+        }
+        children = renderer.render({...defaultProps, ...props, children});
       }
-      children = renderer.render({...defaultProps, ...props, children});
     }
     if (children == null) {
       return null;
